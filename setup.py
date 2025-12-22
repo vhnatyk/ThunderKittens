@@ -43,6 +43,7 @@ if target == '4090':
 elif target == 'h100':
     cuda_flags.append('-DKITTENS_HOPPER')
     cuda_flags.append('-arch=sm_90a')
+    cuda_flags.append('-gencode=arch=compute_90a,code=sm_90a')
 elif target == 'a100':
     cuda_flags.append('-DKITTENS_A100')
     cuda_flags.append('-arch=sm_80')

@@ -28,6 +28,16 @@ template<typename T> concept all = requires {
 namespace detail {
 namespace ipc {
 
+namespace {
+inline void create_context(CUcontext *ctx, unsigned int flags, CUdevice device) {
+#if defined(CUDA_VERSION) && CUDA_VERSION >= 13000
+    CUCHECK(cuCtxCreate_v4(ctx, nullptr, flags, device));
+#else
+    CUCHECK(cuCtxCreate(ctx, flags, device));
+#endif
+}
+} // unnamed namespace
+
 enum flavor {
     LEGACY = 0,
     VMM = 1
@@ -156,7 +166,7 @@ __host__ inline static void enable_all_peer_access(int num_devices) {
 
     for (int i = 0; i < num_devices; i++) {
         CUCHECK(cuDeviceGet(&devices[i], i));
-        CUCHECK(cuCtxCreate(&contexts[i], 0, devices[i]));
+        create_context(&contexts[i], 0, devices[i]);
     }
 
     for (int i = 0; i < num_devices; i++) {

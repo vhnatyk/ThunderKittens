@@ -52,11 +52,19 @@ template<typename _T, ducks::rt_layout::all _layout> struct rt_base {
     using dtype = T2; ///< Data type of the matrix elements
 
     #ifdef KITTENS_HOPPER
-    static_assert(
-        std::is_same_v<dtype, bf16_2> || std::is_same_v<dtype, float2> || std::is_same_v<dtype, half_2> || 
-        std::is_same_v<dtype, fp8e4m3_4> || std::is_same_v<dtype, fp8e5m2_4> || std::is_same_v<dtype, fp4_4>,
-        "rt_base was provided an unsupported type."
-    );
+        #ifdef KITTENS_BLACKWELL
+        static_assert(
+            std::is_same_v<dtype, bf16_2> || std::is_same_v<dtype, float2> || std::is_same_v<dtype, half_2> ||
+            std::is_same_v<dtype, fp8e4m3_4> || std::is_same_v<dtype, fp8e5m2_4> || std::is_same_v<dtype, fp4_4>,
+            "rt_base was provided an unsupported type."
+        );
+        #else
+        static_assert(
+            std::is_same_v<dtype, bf16_2> || std::is_same_v<dtype, float2> || std::is_same_v<dtype, half_2> ||
+            std::is_same_v<dtype, fp8e4m3_4> || std::is_same_v<dtype, fp8e5m2_4>,
+            "rt_base was provided an unsupported type."
+        );
+        #endif
     #else
     static_assert(
         std::is_same_v<dtype, bf16_2> || std::is_same_v<dtype, float2> || std::is_same_v<dtype, half_2>,

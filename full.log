@@ -1,0 +1,376 @@
+Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Obtaining file:///root/vh/ThunderKittens
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: thunderkittens
+  Building editable for thunderkittens (pyproject.toml): started
+  Building editable for thunderkittens (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building editable for thunderkittens (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [353 lines of output]
+      Thunderkittens root: /root/vh/ThunderKittens
+      Python include: /root/miniconda3/include/python3.13
+      Torch include directories: -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include
+      running editable_wheel
+      creating /tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens.egg-info
+      writing /tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens.egg-info/PKG-INFO
+      writing dependency_links to /tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens.egg-info/dependency_links.txt
+      writing top-level names to /tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens.egg-info/top_level.txt
+      writing manifest file '/tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens.egg-info/SOURCES.txt'
+      reading manifest file '/tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens.egg-info/SOURCES.txt'
+      adding license file 'LICENSE'
+      writing manifest file '/tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens.egg-info/SOURCES.txt'
+      creating '/tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens-0.0.0.dist-info'
+      creating /tmp/pip-ephem-wheel-cache-cyumfdj2/wheels/9d/0b/e4/3c828e15f5ab7348b3e41a8c8dc72b7071e7548156d27114ed/tmp2w_t3s2w/.tmp-fisvbxxb/thunderkittens-0.0.0.dist-info/WHEEL
+      running build_ext
+      W1204 01:26:28.631000 2607908 vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py:535] There are no /root/miniconda3/bin/x86_64-conda-linux-gnu-c++ version bounds defined for CUDA version 13.0
+      building 'thunderkittens' extension
+      creating /tmp/tmp9c5_hv7o.build-temp/kernels/matmul/FP8
+      [1/2] /root/miniconda3/bin/x86_64-conda-linux-gnu-c++ -MMD -MF /tmp/tmp9c5_hv7o.build-temp/thunderkittens.o.d -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /root/miniconda3/include -I/root/miniconda3/targets/x86_64-linux/include -L/root/miniconda3/targets/x86_64-linux/lib -L/root/miniconda3/targets/x86_64-linux/lib/stubs -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /root/miniconda3/include -I/root/miniconda3/targets/x86_64-linux/include -L/root/miniconda3/targets/x86_64-linux/lib -L/root/miniconda3/targets/x86_64-linux/lib/stubs -fPIC -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13.0/include -I/root/vh/ThunderKittens/vh200/include -I/root/miniconda3/include/python3.13 -c -c /root/vh/ThunderKittens/thunderkittens.cpp -o /tmp/tmp9c5_hv7o.build-temp/thunderkittens.o -std=c++20 -O3 -DTK_COMPILE_FP8_GEMM -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=thunderkittens
+      [2/2] /usr/local/cuda-13.0/bin/nvcc --generate-dependencies-with-compile --dependency-output /tmp/tmp9c5_hv7o.build-temp/kernels/matmul/FP8/matmul.o.d -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13.0/include -I/root/vh/ThunderKittens/vh200/include -I/root/miniconda3/include/python3.13 -c -c /root/vh/ThunderKittens/kernels/matmul/FP8/matmul.cu -o /tmp/tmp9c5_hv7o.build-temp/kernels/matmul/FP8/matmul.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DNDEBUG -Xcompiler=-Wno-psabi -Xcompiler=-fno-strict-aliasing --expt-extended-lambda --expt-relaxed-constexpr -forward-unknown-to-host-compiler --use_fast_math -std=c++20 -O3 -Xnvlink=--verbose -Xptxas=--verbose -Xptxas=--warn-on-spills -I/root/vh/ThunderKittens/include -I/root/vh/ThunderKittens/prototype -I/root/miniconda3/include/python3.13 -DTORCH_COMPILE -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -DKITTENS_HOPPER -arch=sm_90a -gencode=arch=compute_90a,code=sm_90a -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=thunderkittens -ccbin /root/miniconda3/bin/x86_64-conda-linux-gnu-cc
+      FAILED: [code=255] /tmp/tmp9c5_hv7o.build-temp/kernels/matmul/FP8/matmul.o
+      /usr/local/cuda-13.0/bin/nvcc --generate-dependencies-with-compile --dependency-output /tmp/tmp9c5_hv7o.build-temp/kernels/matmul/FP8/matmul.o.d -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13.0/include -I/root/vh/ThunderKittens/vh200/include -I/root/miniconda3/include/python3.13 -c -c /root/vh/ThunderKittens/kernels/matmul/FP8/matmul.cu -o /tmp/tmp9c5_hv7o.build-temp/kernels/matmul/FP8/matmul.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DNDEBUG -Xcompiler=-Wno-psabi -Xcompiler=-fno-strict-aliasing --expt-extended-lambda --expt-relaxed-constexpr -forward-unknown-to-host-compiler --use_fast_math -std=c++20 -O3 -Xnvlink=--verbose -Xptxas=--verbose -Xptxas=--warn-on-spills -I/root/vh/ThunderKittens/include -I/root/vh/ThunderKittens/prototype -I/root/miniconda3/include/python3.13 -DTORCH_COMPILE -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include -I/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -DKITTENS_HOPPER -arch=sm_90a -gencode=arch=compute_90a,code=sm_90a -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=thunderkittens -ccbin /root/miniconda3/bin/x86_64-conda-linux-gnu-cc
+      nvcc warning : incompatible redefinition for option 'compiler-bindir', the last value of this option was used
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/nn/modules/container/any_module_holder.h(93): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                  module->_forward_populate_default_args(std::move(arguments)));
+                  ^
+      
+      Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(93): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+          module.attr(name) = wrapper_class;
+          ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(155): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                      module.to(
+                      ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(159): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                      module.to(detail::py_object_to_dtype(object), non_blocking);
+                      ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(170): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                        module.to(detail::py_object_to_dtype(dtype), non_blocking);
+                        ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(172): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                        module.to(detail::py_object_to_device(device), non_blocking);
+                        ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(174): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                        module.to(
+                        ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/nn/modules/container/any_module_holder.h(93): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                  module->_forward_populate_default_args(std::move(arguments)));
+                  ^
+      
+      Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(93): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+          module.attr(name) = wrapper_class;
+          ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(155): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                      module.to(
+                      ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(159): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                      module.to(detail::py_object_to_dtype(object), non_blocking);
+                      ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(170): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                        module.to(detail::py_object_to_dtype(dtype), non_blocking);
+                        ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(172): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                        module.to(detail::py_object_to_device(device), non_blocking);
+                        ^
+      
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/include/torch/csrc/api/include/torch/python.h(174): warning #3189-D: "module" is parsed as an identifier rather than a keyword because the tokens that follow it do not match those of a preprocessor directive
+                        module.to(
+                        ^
+      
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 220; error   : Instruction 'setmaxnreg.dec' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 1316; error   : Instruction 'setmaxnreg.inc' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 1894; error   : Instruction 'wgmma.fence' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 1905; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 1915; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 1925; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 1935; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 1940; error   : Instruction 'wgmma.commit_group' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 1944; error   : Instruction 'wgmma.wait_group' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2247; error   : Instruction 'wgmma.fence' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2258; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2268; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2278; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2288; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2294; error   : Instruction 'wgmma.commit_group' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2298; error   : Instruction 'wgmma.wait_group' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2630; error   : Instruction 'wgmma.fence' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2641; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2651; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2661; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2671; error   : Instruction 'wgmma.mma_async with FP8 types' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2677; error   : Instruction 'wgmma.commit_group' not supported on .target 'sm_90'
+      ptxas /tmp/tmpxft_0027ccfe_00000000-7_matmul.compute_90.ptx, line 2681; error   : Instruction 'wgmma.wait_group' not supported on .target 'sm_90'
+      ptxas fatal   : Ptx assembly aborted due to errors
+      ninja: build stopped: subcommand failed.
+      Traceback (most recent call last):
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2684, in _run_ninja_build
+          subprocess.run(
+          ~~~~~~~~~~~~~~^
+              command,
+              ^^^^^^^^
+          ...<4 lines>...
+              check=True,
+              ^^^^^^^^^^^
+              env=env)
+              ^^^^^^^^
+        File "/root/miniconda3/lib/python3.13/subprocess.py", line 577, in run
+          raise CalledProcessError(retcode, process.args,
+                                   output=stdout, stderr=stderr)
+      subprocess.CalledProcessError: Command '['ninja', '-v']' returned non-zero exit status 255.
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/editable_wheel.py", line 139, in run
+          self._create_wheel_file(bdist_wheel)
+          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/editable_wheel.py", line 340, in _create_wheel_file
+          files, mapping = self._run_build_commands(dist_name, unpacked, lib, tmp)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/editable_wheel.py", line 263, in _run_build_commands
+          self._run_build_subcommands()
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/editable_wheel.py", line 290, in _run_build_subcommands
+          self.run_command(name)
+          ~~~~~~~~~~~~~~~~^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/cmd.py", line 357, in run_command
+          self.distribution.run_command(command)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+          ~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/build_ext.py", line 99, in run
+          _build_ext.run(self)
+          ~~~~~~~~~~~~~~^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 368, in run
+          self.build_extensions()
+          ~~~~~~~~~~~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 1143, in build_extensions
+          build_ext.build_extensions(self)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 484, in build_extensions
+          self._build_extensions_serial()
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 510, in _build_extensions_serial
+          self.build_extension(ext)
+          ~~~~~~~~~~~~~~~~~~~~^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/build_ext.py", line 264, in build_extension
+          _build_ext.build_extension(self, ext)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 565, in build_extension
+          objects = self.compiler.compile(
+              sources,
+          ...<5 lines>...
+              depends=ext.depends,
+          )
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 900, in unix_wrap_ninja_compile
+          _write_ninja_file_and_compile_objects(
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+              sources=sources,
+              ^^^^^^^^^^^^^^^^
+          ...<11 lines>...
+              with_cuda=with_cuda,
+              ^^^^^^^^^^^^^^^^^^^^
+              with_sycl=with_sycl)
+              ^^^^^^^^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2297, in _write_ninja_file_and_compile_objects
+          _run_ninja_build(
+          ~~~~~~~~~~~~~~~~^
+              build_directory,
+              ^^^^^^^^^^^^^^^^
+          ...<2 lines>...
+              # that failed to build but there isn't a good way to get it here.
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              error_prefix='Error compiling objects for extension')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2701, in _run_ninja_build
+          raise RuntimeError(message) from e
+      RuntimeError: Error compiling objects for extension
+      /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/dist.py:1021: _DebuggingTips: Problem in editable installation.
+      !!
+      
+              ********************************************************************************
+              An error happened while installing `thunderkittens` in editable mode.
+      
+              The following steps are recommended to help debug this problem:
+      
+              - Try to install the project normally, without using the editable mode.
+                Does the error still persist?
+                (If it does, try fixing the problem before attempting the editable mode).
+              - If you are using binary extensions, make sure you have all OS-level
+                dependencies installed (e.g. compilers, toolchains, binary libraries, ...).
+              - Try the latest version of setuptools (maybe the error was already fixed).
+              - If you (or your project dependencies) are using any setuptools extension
+                or customization, make sure they support the editable mode.
+      
+              After following the steps above, if the problem still persists and
+              you think this is related to how setuptools handles editable installations,
+              please submit a reproducible example
+              (see https://stackoverflow.com/help/minimal-reproducible-example) to:
+      
+                  https://github.com/pypa/setuptools/issues
+      
+              See https://setuptools.pypa.io/en/latest/userguide/development_mode.html for details.
+              ********************************************************************************
+      
+      !!
+        cmd_obj.run()
+      Traceback (most recent call last):
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2684, in _run_ninja_build
+          subprocess.run(
+          ~~~~~~~~~~~~~~^
+              command,
+              ^^^^^^^^
+          ...<4 lines>...
+              check=True,
+              ^^^^^^^^^^^
+              env=env)
+              ^^^^^^^^
+        File "/root/miniconda3/lib/python3.13/subprocess.py", line 577, in run
+          raise CalledProcessError(retcode, process.args,
+                                   output=stdout, stderr=stderr)
+      subprocess.CalledProcessError: Command '['ninja', '-v']' returned non-zero exit status 255.
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+          main()
+          ~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+          json_out["return_val"] = hook(**hook_input["kwargs"])
+                                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 303, in build_editable
+          return hook(wheel_directory, config_settings, metadata_directory)
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/build_meta.py", line 476, in build_editable
+          return self._build_with_temp_dir(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~^
+              cmd, ".whl", wheel_directory, config_settings
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/build_meta.py", line 407, in _build_with_temp_dir
+          self.run_setup()
+          ~~~~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/build_meta.py", line 522, in run_setup
+          super().run_setup(setup_script=setup_script)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/build_meta.py", line 320, in run_setup
+          exec(code, locals())
+          ~~~~^^^^^^^^^^^^^^^^
+        File "<string>", line 63, in <module>
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/__init__.py", line 117, in setup
+          return distutils.core.setup(**attrs)
+                 ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/core.py", line 186, in setup
+          return run_commands(dist)
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/core.py", line 202, in run_commands
+          dist.run_commands()
+          ~~~~~~~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/dist.py", line 1002, in run_commands
+          self.run_command(cmd)
+          ~~~~~~~~~~~~~~~~^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+          ~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/editable_wheel.py", line 139, in run
+          self._create_wheel_file(bdist_wheel)
+          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/editable_wheel.py", line 340, in _create_wheel_file
+          files, mapping = self._run_build_commands(dist_name, unpacked, lib, tmp)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/editable_wheel.py", line 263, in _run_build_commands
+          self._run_build_subcommands()
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/editable_wheel.py", line 290, in _run_build_subcommands
+          self.run_command(name)
+          ~~~~~~~~~~~~~~~~^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/cmd.py", line 357, in run_command
+          self.distribution.run_command(command)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+          ~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/build_ext.py", line 99, in run
+          _build_ext.run(self)
+          ~~~~~~~~~~~~~~^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 368, in run
+          self.build_extensions()
+          ~~~~~~~~~~~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 1143, in build_extensions
+          build_ext.build_extensions(self)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 484, in build_extensions
+          self._build_extensions_serial()
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 510, in _build_extensions_serial
+          self.build_extension(ext)
+          ~~~~~~~~~~~~~~~~~~~~^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/command/build_ext.py", line 264, in build_extension
+          _build_ext.build_extension(self, ext)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 565, in build_extension
+          objects = self.compiler.compile(
+              sources,
+          ...<5 lines>...
+              depends=ext.depends,
+          )
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 900, in unix_wrap_ninja_compile
+          _write_ninja_file_and_compile_objects(
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+              sources=sources,
+              ^^^^^^^^^^^^^^^^
+          ...<11 lines>...
+              with_cuda=with_cuda,
+              ^^^^^^^^^^^^^^^^^^^^
+              with_sycl=with_sycl)
+              ^^^^^^^^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2297, in _write_ninja_file_and_compile_objects
+          _run_ninja_build(
+          ~~~~~~~~~~~~~~~~^
+              build_directory,
+              ^^^^^^^^^^^^^^^^
+          ...<2 lines>...
+              # that failed to build but there isn't a good way to get it here.
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              error_prefix='Error compiling objects for extension')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2701, in _run_ninja_build
+          raise RuntimeError(message) from e
+      RuntimeError: Error compiling objects for extension
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building editable for thunderkittens
+Failed to build thunderkittens
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> thunderkittens
