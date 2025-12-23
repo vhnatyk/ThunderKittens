@@ -150,4 +150,4 @@ configurations = [
 ]
 
 results = benchmark_attention(configurations)
-# plot_results(results)
+plot_results(results)

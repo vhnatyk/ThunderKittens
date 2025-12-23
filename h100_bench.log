@@ -1,0 +1,16 @@
+============================================================
+Timing forward and backward pass for B=16, H=16, N=768, D=128, causal=False
+Average time for forward pass in us: 5023.42
+Average efficiency for forward pass in TFLOPS: 15.38980390905413
+------------------------------------------------------------
+Average time for backward pass in us: 7904.48
+Average efficiency for backward pass in TFLOPS: 24.45113753613649
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=12288, D=128, causal=False
+Average time for forward pass in us: 73180.76
+Average efficiency for forward pass in TFLOPS: 270.4427918140769
+------------------------------------------------------------
+Average time for backward pass in us: 220259.20
+Average efficiency for backward pass in TFLOPS: 224.63544788320365
+============================================================
