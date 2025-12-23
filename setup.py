@@ -9,9 +9,11 @@ target = target.lower()
 thunderkittens_root = os.getenv('THUNDERKITTENS_ROOT', os.path.abspath(os.path.join(os.getcwd(), '.')))
 python_include = subprocess.check_output(['python', '-c', "import sysconfig; print(sysconfig.get_path('include'))"]).decode().strip()
 torch_include = subprocess.check_output(['python', '-c', "import torch; from torch.utils.cpp_extension import include_paths; print(' '.join(['-I' + p for p in include_paths()]))"]).decode().strip()
+torch_lib_dir = subprocess.check_output(['python', '-c', "import os, torch; print(os.path.join(os.path.dirname(torch.__file__), 'lib'))"]).decode().strip()
 print('Thunderkittens root:', thunderkittens_root)
 print('Python include:', python_include)
 print('Torch include directories:', torch_include)
+print('Torch lib directory:', torch_lib_dir)
 
 # CUDA flags
 cuda_flags = [
@@ -77,7 +79,8 @@ setup(
             sources=source_files, 
             extra_compile_args={'cxx' : cpp_flags,
                                 'nvcc' : cuda_flags}, 
-            libraries=['cuda']
+            libraries=['cuda'],
+            extra_link_args=[f'-Wl,-rpath,{torch_lib_dir}'],
         )
     ],
     cmdclass={

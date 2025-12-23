@@ -9,9 +9,7 @@ def generate_tensor(shape, mean, std, dtype, device):
     return scaled_tensor.contiguous()
 
 def tk_forward_test(Q, K, V, causal):
-    O = torch.zeros_like(Q).contiguous()
-    L = torch.zeros(Q.shape[0], Q.shape[1], Q.shape[2], 1, device=Q.device, dtype=torch.float)
-    tk.mha_forward(Q, K, V, O, L, causal)
+    O, L = tk.mha_forward(Q, K, V, bool(causal))
     return O, L
 
 def check_consistency(b, h, n, d, causal, mean, std, num_iterations=100000):

@@ -33,14 +33,11 @@ def generate_tensor(shape, mean, std, dtype, device):
 
 
 def tk_forward_test(Q, K, V, causal):
-    O = torch.zeros_like(Q).contiguous()
-    L = torch.zeros(Q.shape[0], Q.shape[1], Q.shape[2], 1, device=Q.device, dtype=torch.float)
-    tk.mha_forward(Q, K, V, O, L, causal)
+    O, L = tk.mha_forward(Q, K, V, bool(causal))
     return O, L
 
-def tk_backward_test(Q, K, V, O, L, d_vec, dO, causal):
-    
-    return tk.mha_backward(Q, K, V, O, L, d_vec, dO, causal)
+def tk_backward_test(Q, K, V, O, L, dO, causal):
+    return tk.mha_backward(Q, K, V, O, L, dO, bool(causal))
 
 def check_consistency(b, h, n, d, causal, mean, std, num_iterations=100000):
     
@@ -53,16 +50,15 @@ def check_consistency(b, h, n, d, causal, mean, std, num_iterations=100000):
     dO = generate_tensor((b, h, n, d), mean, std, torch.bfloat16, 'cuda')
     
     _, L = tk_forward_test(Q, K, V, causal)
-    d_vec = torch.zeros(b, h, n, 1, device='cuda', dtype=torch.float)
 
     # Initial run to get reference outputs
-    ref_qg, ref_kg, ref_vg = tk_backward_test(Q, K, V, O, L, d_vec, dO, causal)
+    ref_qg, ref_kg, ref_vg = tk_backward_test(Q, K, V, O, L, dO, causal)
 
     max_diff_qg, max_diff_kg, max_diff_vg = 0, 0, 0
 
     for _ in tqdm(range(num_iterations), desc="Checking consistency"):
         torch.cuda.synchronize()
-        qg, kg, vg = tk_backward_test(Q, K, V, O, L, d_vec, dO, causal)
+        qg, kg, vg = tk_backward_test(Q, K, V, O, L, dO, causal)
         torch.cuda.synchronize()
         
         max_diff_qg = torch.abs(qg - ref_qg).max()

@@ -50,19 +50,12 @@ def h100_fwd_kernel_test(Q, K, V, dO, causal):
     Q.requires_grad = True
     K.requires_grad = True
     V.requires_grad = True
-    
-    o = torch.zeros_like(Q).contiguous()
-    l_vec = torch.zeros(Q.shape[0], Q.shape[1], Q.shape[2], 1, device=Q.device, dtype=torch.float).requires_grad_()
-    
-    tk.mha_forward(Q, K, V, o, l_vec, causal)
 
-    d_vec = torch.zeros(Q.shape[0], Q.shape[1], Q.shape[2], 1, device=Q.device, dtype=torch.float).requires_grad_()
-    qg = torch.zeros_like(Q, dtype=torch.float).contiguous()
-    kg = torch.zeros_like(K, dtype=torch.float).contiguous()
-    vg = torch.zeros_like(V, dtype=torch.float).contiguous()
-
-    tk.mha_backward(Q, K, V, o, l_vec, d_vec, dO, qg, kg, vg, causal)
-
+    # ThunderKittens extension API:
+    #   o, l_vec = tk.mha_forward(Q, K, V, causal)
+    #   qg, kg, vg = tk.mha_backward(Q, K, V, o, l_vec, dO, causal)
+    o, l_vec = tk.mha_forward(Q, K, V, bool(causal))
+    qg, kg, vg = tk.mha_backward(Q, K, V, o, l_vec, dO, bool(causal))
     return o, qg, kg, vg
 
 def flash_attn_test(Q, K, V, dO, causal):
@@ -76,8 +69,9 @@ def flash_attn_test(Q, K, V, dO, causal):
     K.requires_grad = True
     V.requires_grad = True
     
-    # Forward pass
-    output, _ = flash_attn_func(Q, K, V, causal=causal)
+    # Forward pass (FA3 may return either Tensor or tuple depending on return_attn_probs)
+    _res = flash_attn_func(Q, K, V, causal=causal)
+    output = _res if torch.is_tensor(_res) else _res[0]
     
     # Backward pass
     output.backward(dO)
