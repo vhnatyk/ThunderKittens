@@ -1,0 +1,218 @@
+/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/library.py:357: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+  Overriding a previously registered kernel for the same operator and the same dispatch key
+  operator: flash_attn_3::_flash_attn_backward(Tensor dout, Tensor q, Tensor k, Tensor v, Tensor out, Tensor softmax_lse, Tensor? cu_seqlens_q=None, Tensor? cu_seqlens_k=None, Tensor? sequed_q=None, Tensor? sequed_k=None, SymInt? max_seqlen_q=None, SymInt? max_seqlen_k=None, Tensor(a12!)? dq=None, Tensor(a13!)? dk=None, Tensor(a14!)? dv=None, float? softmax_scale=None, bool is_causal=False, SymInt window_size_left=-1, SymInt window_size_right=-1, float softcap=0., bool deterministic=False, SymInt sm_margin=0) -> Tensor
+    registered at /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/_library/custom_ops.py:926
+  dispatch key: ADInplaceOrView
+  previous kernel: no debug info
+       new kernel: registered at /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/_library/custom_ops.py:926 (Triggered internally at /pytorch/aten/src/ATen/core/dispatch/OperatorEntry.cpp:208.)
+  self.m.impl(
+============================================================
+Timing forward and backward pass for B=16, H=16, N=768, D=128, causal=False
+Average time for forward pass in us: 5014.04
+TK forward TFLOPS: 15.41858190883975
+------------------------------------------------------------
+Average time for backward pass in us: 7851.41
+TK backward TFLOPS: 24.616396159725802
+FA3 forward TFLOPS: 190.7630907368612
+FA3 backward TFLOPS: 139.10655038984004
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=12288, D=128, causal=False
+Average time for forward pass in us: 74103.90
+TK forward TFLOPS: 267.0737987594501
+------------------------------------------------------------
+Average time for backward pass in us: 219862.50
+TK backward TFLOPS: 225.04075615405083
+FA3 forward TFLOPS: 330.5616849826711
+FA3 backward TFLOPS: 213.9135583112165
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=1536, D=128, causal=False
+Average time for forward pass in us: 5373.41
+TK forward TFLOPS: 57.54962972420854
+------------------------------------------------------------
+Average time for backward pass in us: 9090.81
+TK backward TFLOPS: 85.04125431126
+FA3 forward TFLOPS: 321.5202347280945
+FA3 backward TFLOPS: 171.1298694362613
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=3072, D=128, causal=False
+Average time for forward pass in us: 6821.38
+TK forward TFLOPS: 181.33446728005467
+------------------------------------------------------------
+Average time for backward pass in us: 19862.34
+TK backward TFLOPS: 155.69042072640696
+FA3 forward TFLOPS: 302.1938648535476
+FA3 backward TFLOPS: 193.64292020137157
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=6144, D=128, causal=False
+Average time for forward pass in us: 20685.26
+TK forward TFLOPS: 239.19461609408785
+------------------------------------------------------------
+Average time for backward pass in us: 60677.32
+TK backward TFLOPS: 203.8571492818388
+FA3 forward TFLOPS: 325.3795321776021
+FA3 backward TFLOPS: 209.06882552239742
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=12288, D=128, causal=False
+Average time for forward pass in us: 74476.07
+TK forward TFLOPS: 265.7391586167332
+------------------------------------------------------------
+Average time for backward pass in us: 219355.64
+TK backward TFLOPS: 225.5607561199498
+FA3 forward TFLOPS: 332.49393406273043
+FA3 backward TFLOPS: 214.337385362439
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=768, D=128, causal=True
+Average time for forward pass in us: 4989.23
+TK forward TFLOPS: 7.747631431991868
+------------------------------------------------------------
+Average time for backward pass in us: 7725.76
+TK backward TFLOPS: 12.508388162486897
+FA3 forward TFLOPS: 422.4077908560575
+FA3 backward TFLOPS: 103.36844965594142
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=1536, D=128, causal=True
+Average time for forward pass in us: 5229.81
+TK forward TFLOPS: 29.56491353837935
+------------------------------------------------------------
+Average time for backward pass in us: 8466.08
+TK backward TFLOPS: 45.65831144903675
+FA3 forward TFLOPS: 297.7231446432466
+FA3 backward TFLOPS: 128.03682139676917
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=3072, D=128, causal=True
+Average time for forward pass in us: 6105.75
+TK forward TFLOPS: 101.29390301152021
+------------------------------------------------------------
+Average time for backward pass in us: 13797.80
+TK backward TFLOPS: 112.06044980689748
+FA3 forward TFLOPS: 282.88126045939947
+FA3 backward TFLOPS: 171.05208046971453
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=6144, D=128, causal=True
+Average time for forward pass in us: 14499.34
+TK forward TFLOPS: 170.62166912729646
+------------------------------------------------------------
+Average time for backward pass in us: 36540.83
+TK backward TFLOPS: 169.25597219737068
+FA3 forward TFLOPS: 324.0362524308159
+FA3 backward TFLOPS: 196.22215840390658
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=16, N=12288, D=128, causal=True
+Average time for forward pass in us: 42641.71
+TK forward TFLOPS: 232.06399873545746
+------------------------------------------------------------
+Average time for backward pass in us: 122874.00
+TK backward TFLOPS: 201.33642823054606
+FA3 forward TFLOPS: 322.32275876189635
+FA3 backward TFLOPS: 207.48558078119095
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=768, D=64, causal=False
+Average time for forward pass in us: 5079.09
+TK forward TFLOPS: 15.221111032156456
+------------------------------------------------------------
+Average time for backward pass in us: 7954.05
+TK backward TFLOPS: 24.298753479511216
+FA3 forward TFLOPS: 180.00767990445217
+FA3 backward TFLOPS: 132.26606881348664
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=1536, D=64, causal=False
+Average time for forward pass in us: 5618.35
+TK forward TFLOPS: 55.040632233673946
+------------------------------------------------------------
+Average time for backward pass in us: 9427.24
+TK backward TFLOPS: 82.00637076020867
+FA3 forward TFLOPS: 227.17322627209657
+FA3 backward TFLOPS: 144.4665023583643
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=3072, D=64, causal=False
+Average time for forward pass in us: 9428.52
+TK forward TFLOPS: 131.1923747406397
+------------------------------------------------------------
+Average time for backward pass in us: 22686.73
+TK backward TFLOPS: 136.30770448987514
+FA3 forward TFLOPS: 229.81572156462
+FA3 backward TFLOPS: 163.28869465008538
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=6144, D=64, causal=False
+Average time for forward pass in us: 28090.44
+TK forward TFLOPS: 176.13828730673177
+------------------------------------------------------------
+Average time for backward pass in us: 72426.09
+TK backward TFLOPS: 170.78799121854627
+FA3 forward TFLOPS: 245.78675577401145
+FA3 backward TFLOPS: 173.3325549424203
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=12288, D=64, causal=False
+Average time for forward pass in us: 95368.42
+TK forward TFLOPS: 207.52372254365667
+------------------------------------------------------------
+Average time for backward pass in us: 263574.52
+TK backward TFLOPS: 187.71929721705558
+FA3 forward TFLOPS: 250.63253072472304
+FA3 backward TFLOPS: 178.87291021984407
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=768, D=64, causal=True
+Average time for forward pass in us: 5034.66
+TK forward TFLOPS: 7.677715466394386
+------------------------------------------------------------
+Average time for backward pass in us: 7790.06
+TK backward TFLOPS: 12.405141216066573
+FA3 forward TFLOPS: 101.37120272089045
+FA3 backward TFLOPS: 95.55704609315636
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=1536, D=64, causal=True
+Average time for forward pass in us: 5355.98
+TK forward TFLOPS: 28.86844215760503
+------------------------------------------------------------
+Average time for backward pass in us: 8768.61
+TK backward TFLOPS: 44.083027028611255
+FA3 forward TFLOPS: 177.17212509096458
+FA3 backward TFLOPS: 121.30616916081645
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=3072, D=64, causal=True
+Average time for forward pass in us: 6526.79
+TK forward TFLOPS: 94.75948361317369
+------------------------------------------------------------
+Average time for backward pass in us: 17375.77
+TK backward TFLOPS: 88.98529327001619
+FA3 forward TFLOPS: 218.3400592021838
+FA3 backward TFLOPS: 146.6905406683826
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=6144, D=64, causal=True
+Average time for forward pass in us: 16479.24
+TK forward TFLOPS: 150.12226981977355
+------------------------------------------------------------
+Average time for backward pass in us: 45622.63
+TK backward TFLOPS: 135.56325882107046
+FA3 forward TFLOPS: 234.01352471189642
+FA3 backward TFLOPS: 164.8780509334217
+============================================================
+============================================================
+Timing forward and backward pass for B=16, H=32, N=12288, D=64, causal=True
+Average time for forward pass in us: 54689.37
+TK forward TFLOPS: 180.94200341349958
+------------------------------------------------------------
+Average time for backward pass in us: 158865.74
+TK backward TFLOPS: 155.72275683340905
+FA3 forward TFLOPS: 241.17313720804225
+FA3 backward TFLOPS: 176.55286259731935
+============================================================
