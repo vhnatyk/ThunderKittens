@@ -1,5 +1,24 @@
 import torch
-from flash_attn_interface import flash_attn_func
+
+try:
+    from flash_attn_interface import flash_attn_func
+except ImportError as e:
+    if "cudaGetDriverEntryPointByVersion" in str(e):
+        import importlib.util
+        import sys
+        from pathlib import Path
+
+        mod_path = Path(__file__).resolve().parents[3] / "cudart_preload.py"
+        spec = importlib.util.spec_from_file_location("cudart_preload", mod_path)
+        if spec is None or spec.loader is None:
+            raise
+        cudart_preload = importlib.util.module_from_spec(spec)
+        sys.modules["cudart_preload"] = cudart_preload
+        spec.loader.exec_module(cudart_preload)
+        cudart_preload.preload()
+        from flash_attn_interface import flash_attn_func
+    else:
+        raise
 import thunderkittens as tk
 import random
 from tqdm import tqdm

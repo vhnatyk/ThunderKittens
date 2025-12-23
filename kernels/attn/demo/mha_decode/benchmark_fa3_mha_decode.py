@@ -6,7 +6,25 @@ from triton.testing import do_bench, do_bench_cudagraph
 
 from einops import rearrange
 
-from flash_attn_interface import flash_attn_with_kvcache
+try:
+    from flash_attn_interface import flash_attn_with_kvcache
+except ImportError as e:
+    if "cudaGetDriverEntryPointByVersion" in str(e):
+        import importlib.util
+        import sys
+        from pathlib import Path
+
+        mod_path = Path(__file__).resolve().parents[4] / "cudart_preload.py"
+        spec = importlib.util.spec_from_file_location("cudart_preload", mod_path)
+        if spec is None or spec.loader is None:
+            raise
+        cudart_preload = importlib.util.module_from_spec(spec)
+        sys.modules["cudart_preload"] = cudart_preload
+        spec.loader.exec_module(cudart_preload)
+        cudart_preload.preload()
+        from flash_attn_interface import flash_attn_with_kvcache
+    else:
+        raise
 
 try:
     from flash_attn.utils.benchmark import pytorch_profiler

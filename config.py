@@ -68,7 +68,8 @@ sources = {
 ### WHICH KERNELS DO WE WANT TO BUILD?
 # (oftentimes during development work you don't need to redefine them all.)
 # kernels = ['attn', 'mamba2', 'hedgehog', 'fftconv', 'fused_rotary', 'based', 'fused_layernorm']
-kernels = ['fp8_gemm']
+# For ThunderKittens attention benchmarks/tests we need the attention kernel.
+kernels = ['attn']
 
 ### WHICH GPU TARGET DO WE WANT TO BUILD FOR?
 target = 'h100'

@@ -1,0 +1,12 @@
+/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/library.py:357: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+  Overriding a previously registered kernel for the same operator and the same dispatch key
+  operator: flash_attn_3::_flash_attn_backward(Tensor dout, Tensor q, Tensor k, Tensor v, Tensor out, Tensor softmax_lse, Tensor? cu_seqlens_q=None, Tensor? cu_seqlens_k=None, Tensor? sequed_q=None, Tensor? sequed_k=None, SymInt? max_seqlen_q=None, SymInt? max_seqlen_k=None, Tensor(a12!)? dq=None, Tensor(a13!)? dk=None, Tensor(a14!)? dv=None, float? softmax_scale=None, bool is_causal=False, SymInt window_size_left=-1, SymInt window_size_right=-1, float softcap=0., bool deterministic=False, SymInt sm_margin=0) -> Tensor
+    registered at /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/_library/custom_ops.py:926
+  dispatch key: ADInplaceOrView
+  previous kernel: no debug info
+       new kernel: registered at /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/_library/custom_ops.py:926 (Triggered internally at /pytorch/aten/src/ATen/core/dispatch/OperatorEntry.cpp:208.)
+  self.m.impl(
+Traceback (most recent call last):
+  File "/root/vh/ThunderKittens/kernels/attn/h100/h100_check.py", line 23, in <module>
+    import thunderkittens as tk
+ModuleNotFoundError: No module named 'thunderkittens'
