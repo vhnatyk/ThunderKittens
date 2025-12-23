@@ -42,7 +42,17 @@ if target == '4090':
     cuda_flags.append('-arch=sm_89')
 elif target == 'h100':
     cuda_flags.append('-DKITTENS_HOPPER')
-    cuda_flags.append('-arch=sm_90a')
+    # IMPORTANT:
+    # Do NOT pass '-arch=sm_90a' here.
+    #
+    # When building via torch.utils.cpp_extension, PyTorch will auto-inject
+    # `-gencode` flags based on TORCH_CUDA_ARCH_LIST. We want that mechanism
+    # so we can target Hopper "a" (sm_90a) with:
+    #   TORCH_CUDA_ARCH_LIST=9.0a
+    #
+    # If we pass any flag containing 'arch', PyTorch disables its arch-flag
+    # injection, and nvcc may emit PTX with `.target sm_90` which fails for
+    # WGMMA instructions that require `.target sm_90a`.
 elif target == 'a100':
     cuda_flags.append('-DKITTENS_A100')
     cuda_flags.append('-arch=sm_80')

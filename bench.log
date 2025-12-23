@@ -6,7 +6,9 @@
   previous kernel: no debug info
        new kernel: registered at /root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/_library/custom_ops.py:926 (Triggered internally at /pytorch/aten/src/ATen/core/dispatch/OperatorEntry.cpp:208.)
   self.m.impl(
-Traceback (most recent call last):
-  File "/root/vh/ThunderKittens/kernels/attn/h100/h100_check.py", line 23, in <module>
-    import thunderkittens as tk
-ModuleNotFoundError: No module named 'thunderkittens'
+Generating error data:   0%|          | 0/3 [00:00<?, ?it/s]/root/vh/ThunderKittens/vh200/lib/python3.13/site-packages/torch/autograd/graph.py:865: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:330.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Generating error data:  33%|███▎      | 1/3 [00:06<00:12,  6.13s/it]Generating error data:  67%|██████▋   | 2/3 [00:14<00:07,  7.60s/it]Generating error data: 100%|██████████| 3/3 [00:39<00:00, 15.33s/it]Generating error data: 100%|██████████| 3/3 [00:39<00:00, 13.09s/it]
+Generating error data:   0%|          | 0/3 [00:00<?, ?it/s]Generating error data:  33%|███▎      | 1/3 [00:08<00:17,  8.91s/it]Generating error data:  67%|██████▋   | 2/3 [00:23<00:12, 12.31s/it]Generating error data: 100%|██████████| 3/3 [01:00<00:00, 23.60s/it]Generating error data: 100%|██████████| 3/3 [01:00<00:00, 20.21s/it]
+Generating error data:   0%|          | 0/3 [00:00<?, ?it/s]Generating error data:  33%|███▎      | 1/3 [00:10<00:21, 10.51s/it]Generating error data:  67%|██████▋   | 2/3 [00:25<00:12, 12.98s/it]Generating error data: 100%|██████████| 3/3 [00:55<00:00, 20.98s/it]Generating error data: 100%|██████████| 3/3 [00:55<00:00, 18.57s/it]
+Error graphs generated and saved for all modes.

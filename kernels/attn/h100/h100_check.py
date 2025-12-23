@@ -73,7 +73,11 @@ def fa3_test(Q, K, V, dO, causal):
     K_.requires_grad = True
     V_.requires_grad = True
     
-    out, _ = flash_attn_func(Q_, K_, V_, causal=causal)
+    _fa3_res = flash_attn_func(Q_, K_, V_, causal=causal)
+    # FA3 can return either:
+    # - out (Tensor)
+    # - (out, softmax_lse, ...) when return_attn_probs=True
+    out = _fa3_res if torch.is_tensor(_fa3_res) else _fa3_res[0]
     out.backward(dO_)
     
     qgrad = Q_.grad
@@ -124,7 +128,19 @@ def h100_fwd_kernel_test(Q, K, V, dO, causal, mode):
             l_vec = l_vec * -11.313708499
         l_vec = l_vec.to(torch.float)
         
-        _, l_vec_fa3 = flash_attn_func(Q.permute(0, 2, 1, 3), K.permute(0, 2, 1, 3), V.permute(0, 2, 1, 3), causal=causal)
+        _fa3_res = flash_attn_func(
+            Q.permute(0, 2, 1, 3),
+            K.permute(0, 2, 1, 3),
+            V.permute(0, 2, 1, 3),
+            causal=causal,
+            return_attn_probs=True,
+        )
+        if torch.is_tensor(_fa3_res):
+            raise RuntimeError(
+                "flash_attn_func didn't return softmax_lse; expected a tuple. "
+                "Try a newer FA3 build or ensure return_attn_probs=True is supported."
+            )
+        l_vec_fa3 = _fa3_res[1]
         if (q_.size(-1) == 64):
             l_vec_fa3 = l_vec_fa3 * -8.0
         if (q_.size(-1) == 128):
